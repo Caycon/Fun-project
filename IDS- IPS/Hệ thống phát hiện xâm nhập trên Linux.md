@@ -787,4 +787,4 @@ action protocol source_IP source_port -> destination_IP destination_port
 - [Cài đặt Zeek trên Ubuntu](https://vi.linux-console.net/.?p=30832).
 - [Cách cấu hình Snort](https://vi.linux-console.net/?p=17525).
 
-#  
+# [Source](https://hackmd.io/tW_-UudCRtGtO3z-Ila8cQ?both)
