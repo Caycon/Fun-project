@@ -754,3 +754,5 @@ iw reg get
 ![image](https://hackmd.io/_uploads/HyYHTYhske.png)
 
 Ta không thấy chữ PASSIVE-SCAN ở frequency 5180MHz do đó việc deauth vẫn được thực hiện bình thường
+
+# [Source](https://hackmd.io/mMy4Kv7vTnK7TtJACF1PtQ?both)
