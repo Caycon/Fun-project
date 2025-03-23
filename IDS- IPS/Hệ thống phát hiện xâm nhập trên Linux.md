@@ -786,3 +786,5 @@ action protocol source_IP source_port -> destination_IP destination_port
 - [Cài đặt Snort trên Ubuntu](/Zv70_jMPT_ib7yvRX6doBA).
 - [Cài đặt Zeek trên Ubuntu](https://vi.linux-console.net/.?p=30832).
 - [Cách cấu hình Snort](https://vi.linux-console.net/?p=17525).
+
+#  
