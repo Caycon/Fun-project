@@ -368,9 +368,9 @@ def switch_channel():
 vendors = open('oui.txt', 'r').read()
 def check_network(ssid, bssid, signal_strength, channel, enc):
     if bssid[:8].upper().replace(':', '') not in vendors:
-        rogue = "⚠️  Susspect"
+        rogue = "Susspect"
     else:
-        rogue = "✅ Credible"
+        rogue = "Credible"
     print(f"{ssid[:15]:15}\t{bssid}\t{signal_strength}\t{channel}\t{enc}\t{rogue}")
 
 # Danh sách lưu thông tin các AP
@@ -415,15 +415,15 @@ if __name__=='__main__':
 
     # Kiểm tra nếu đang chạy trên Windows thì báo lỗi
     if os.name == "nt":
-        print("⚠️ Windows detected! Please use Kali Linux with adapter support Monitor mode!")
+        print("Windows detected! Please use Kali Linux with adapter support Monitor mode!")
     else:
-        print("📡 Scanning for Rouge AP...\nPress Ctrl+C to stop!")
+        print("Scanning for Rouge AP...\nPress Ctrl+C to stop!")
         t = Thread(target=switch_channel)
         t.daemon = True
         t.start()
 
 
-        print("\n🔍 List of wifi detected:")
+        print("\nList of wifi detected:")
         print("SSID\t\tBSSID\t\t\tPWR\tCH\tENC\t⚠️  Rogue AP?")
         print("--------------------------------------------------------------------------------")
 
