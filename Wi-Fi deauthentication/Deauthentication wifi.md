@@ -1,4 +1,4 @@
-# 1️⃣ Giới thiệu về WiFi & Cơ chế xác thực (Người 1)
+# Giới thiệu về WiFi & Cơ chế xác thực
 ## WiFi hoạt động như thế nào?
 - Wi-Fi là một công nghệ không dây dùng để kết nối mạng, vì vậy nó sử dụng sóng điện từ để truyền tải mạng. Chúng ta biết rằng sóng điện từ có nhiều loại khác nhau dựa trên tần số của chúng, chẳng hạn như tia X, tia Gamma, sóng vô tuyến, sóng vi ba, v.v. Trong Wi-Fi, tần số sóng vô tuyến được sử dụng. Để truyền tín hiệu Wi-Fi, có ba phương thức chính:
     - Mạng trạm gốc hoặc kết nối Ethernet (802.3): Đây là mạng chủ chính cung cấp kết nối mạng cho bộ định tuyến (router).
@@ -75,7 +75,7 @@ Management frames are used to manage the BSS. This includes probing, associating
     - Hỗ trợ trong quá trình chuyển tiếp: Trong các mạng lớn, khi một thiết bị di chuyển từ một điểm truy cập này sang một điểm truy cập khác, De-authentication Frame có thể được sử dụng để thông báo rằng thiết bị đã bị ngắt kết nối khỏi điểm truy cập cũ trước khi kết nối với điểm truy cập mới.
 
 
-# 2️⃣ Deauthentication Attack là gì? (Người 2)
+# Deauthentication Attack là gì?
 ## 2.1. Định nghĩa & Nguyên lý hoạt động
 
 **Deauthentication Attack** là một kỹ thuật tấn công nhằm phá vỡ kết nối giữa client và Access Point (AP) bằng cách gửi các **deauthentication frames** giả mạo. Theo tiêu chuẩn IEEE 802.11, các khung quản lý như deauthentication không được mã hóa hoặc xác thực, do đó dễ bị giả mạo.
@@ -269,7 +269,7 @@ Mặc dù cả Deauthentication Attack và Disassociation Attack đều nhằm p
     - Sau đó, sử dụng thông tin của Beacon (địa chỉ MAC của AP) để xây dựng gói tin Deauthentication với Reason Code 7.
     - Cuối cùng, gói tin Deauthentication được gửi liên tục qua giao diện monitor để thực hiện tấn công.
 
-# 3️⃣ Cách phòng chống tấn công Deauthentication (Người 3)
+# Cách phòng chống tấn công Deauthentication
 WPA3 và Protected Management Frames (PMF).
 ## WPA3
 -    WPA là từ viết tắt cho Wi-Fi Protected Access, nó là một chứng chỉ bảo mật do Wi-Fi Alliance tạo ra để bảo vệ các kết nối không dây. Bạn có thể hiểu đơn giản rằng WPA là một bộ quy tắc được thiết kế để giúp bảo vệ bộ định tuyến Wi-Fi nhà mình, các thiết bị mà nó kết nối tới cùng những dữ liệu được truyền đi. Nhờ vào một lớp liên lạc trung gian, hai thiết bị đầu và cuối sẽ không cần phải biết được các thông tin "bí mật" của nhau.
@@ -455,15 +455,15 @@ if __name__=='__main__':
 ![image](https://hackmd.io/_uploads/S1HUoux2kg.png)
 
 
-# 4️⃣ Ứng dụng thực tế & Kết luận (Người 4)
+# Ứng dụng thực tế & Kết luận
 ## **Deauth Attack kết hợp với Evil Twin Attack (Fake AP)**  
 
 Deauth Attack có thể đóng vai trò quan trọng trong việc thực hiện **Evil Twin Attack**, giúp kẻ tấn công đánh lừa nạn nhân kết nối vào một điểm truy cập giả mạo (**Fake AP**) thay vì AP thật.  
 
 ---
 
-### **📌 Cách thức tấn công**  
-#### 🔴 **Bước 1: Thực hiện Deauth Attack để ngắt kết nối nạn nhân khỏi AP thật**  
+### **Cách thức tấn công**  
+#### **Bước 1: Thực hiện Deauth Attack để ngắt kết nối nạn nhân khỏi AP thật**  
 - 
 sử dụng **Deauth Attack** để gửi các gói **Deauthentication** đến client mục tiêu, buộc nó phải ngắt kết nối khỏi Wi-Fi thật.  
 - Công cụ phổ biến:  
@@ -472,7 +472,7 @@ sử dụng **Deauth Attack** để gửi các gói **Deauthentication** đến 
 
 ---
 
-#### 🔴 **Bước 2: Tạo Evil Twin - Fake AP**  
+#### **Bước 2: Tạo Evil Twin - Fake AP**  
 - Kẻ tấn công tạo một điểm truy cập giả **(Fake AP)** có cùng tên SSID với AP thật.  
 - Nạn nhân, sau khi bị ngắt kết nối, sẽ vô tình kết nối vào Fake AP.  
 - Công cụ phổ biến:  
@@ -481,7 +481,7 @@ sử dụng **Deauth Attack** để gửi các gói **Deauthentication** đến 
 
 ---
 
-#### 🔴 **Bước 3: Thu thập dữ liệu nạn nhân**  
+#### **Bước 3: Thu thập dữ liệu nạn nhân**  
 Sau khi nạn nhân kết nối vào Fake AP, kẻ tấn công có thể:  
 1. **Chặn dữ liệu (Packet Sniffing)** bằng `Wireshark` hoặc `tcpdump`.  
 2. **Tấn công SSL Strip** để ép nạn nhân sử dụng HTTP thay vì HTTPS (`Bettercap`).  
@@ -489,7 +489,7 @@ Sau khi nạn nhân kết nối vào Fake AP, kẻ tấn công có thể:
 
 ---
 
-### **🚀 Công cụ thực hiện**
+### **Công cụ thực hiện**
 | Công cụ | Mục đích |
 |---------|---------|
 | `aircrack-ng` | Deauth Attack |
@@ -502,13 +502,13 @@ Sau khi nạn nhân kết nối vào Fake AP, kẻ tấn công có thể:
 
 ### **4.2.1. SSID Cloaking kết hợp với Deauth Attack**  
 
-#### 🔍 **SSID Cloaking là gì?**  
+#### **SSID Cloaking là gì?**  
 SSID Cloaking (ẩn SSID) là một kỹ thuật bảo mật giúp router Wi-Fi không phát sóng tên mạng (SSID). Khi SSID bị ẩn, chỉ những thiết bị đã biết tên mạng mới có thể kết nối.  
 
-#### ⚔ **Kết hợp SSID Cloaking với Deauth Attack**  
+#### **Kết hợp SSID Cloaking với Deauth Attack**  
 Kẻ tấn công có thể sử dụng Deauth Attack để ép các thiết bị mục tiêu ngắt kết nối, sau đó khai thác các gói tin để xác định SSID bị ẩn.
 
-#### **📌 Cách thực hiện**:
+#### **Cách thực hiện**:
 1. **Gửi Deauth Attack** đến thiết bị mục tiêu → Thiết bị sẽ buộc phải kết nối lại với Wi-Fi.  
 2. **Bắt gói tin Probe Request và Probe Response**: Khi thiết bị tìm kiếm lại Wi-Fi, nó sẽ gửi gói Probe Request chứa SSID đã lưu trước đó.  
 3. **Xác định SSID bị ẩn**: Bằng cách phân tích các gói tin này bằng công cụ như `Wireshark` hoặc `aircrack-ng`, hacker có thể lấy được tên SSID đã bị ẩn.  
@@ -523,12 +523,12 @@ Kẻ tấn công có thể sử dụng Deauth Attack để ép các thiết bị
 
 ### **4.2.2. Man-in-the-Middle (MiTM) với Deauth Attack**  
 
-#### 🕵️ **Man-in-the-Middle (MiTM) là gì?**  
+#### **Man-in-the-Middle (MiTM) là gì?**  
 MiTM là một cuộc tấn công trong đó kẻ tấn công chèn mình vào giữa kết nối giữa hai bên để nghe lén, thay đổi hoặc chặn dữ liệu.
 
-#### ⚔ **Cách kết hợp Deauth Attack với MiTM**  
+#### **Cách kết hợp Deauth Attack với MiTM**  
 
-##### **📌 Kịch bản thực tế**:  
+##### **Kịch bản thực tế**:  
 1. **Gây gián đoạn kết nối bằng Deauth Attack**  
    - Gửi gói Deauthentication đến một thiết bị trên mạng mục tiêu để ngắt kết nối nó khỏi Access Point thật.  
 
@@ -542,7 +542,7 @@ MiTM là một cuộc tấn công trong đó kẻ tấn công chèn mình vào g
      - **Khai thác thông tin đăng nhập**: Dùng `ettercap` hoặc `Bettercap` để thu thập thông tin từ các phiên HTTP không mã hóa.  
      - **Chạy Attack SSL Strip**: Nếu người dùng truy cập một trang web HTTP, hacker có thể chuyển hướng họ đến một trang giả mạo để đánh cắp mật khẩu.  
 
-#### **🔥 Công cụ sử dụng**:
+#### **Công cụ sử dụng**:
 - `aircrack-ng` (Deauth Attack)  
 - `hostapd` (Tạo AP giả)  
 - `ettercap` hoặc `Bettercap` (Thực hiện MiTM)  
@@ -591,32 +591,32 @@ Wi-Fi là công nghệ phổ biến trong đời sống hiện đại, nhưng th
 
 ---
 
-### **📌 Vì sao Wi-Fi không an toàn?**  
+### **Vì sao Wi-Fi không an toàn?**  
 
-🔴 **Dễ bị tấn công Deauthentication** → Kẻ tấn công có thể buộc thiết bị rời khỏi mạng một cách dễ dàng bằng Deauth Attack.  
-🔴 **Dễ bị giả mạo AP (Evil Twin Attack)** → Một Fake AP có thể lừa người dùng kết nối và đánh cắp dữ liệu.  
-🔴 **Dữ liệu có thể bị chặn (Sniffing & MiTM Attack)** → Hacker có thể đọc, chỉnh sửa dữ liệu nếu người dùng truy cập HTTP thay vì HTTPS.  
-🔴 **Mật khẩu có thể bị bẻ khóa** → Nếu Wi-Fi dùng **WPA2-PSK**, hacker có thể thu thập WPA Handshake và thực hiện **Brute Force Attack** để lấy mật khẩu.  
-
----
-
-### **🛡 Cách phòng tránh tấn công Wi-Fi**  
-
-✅ **Sử dụng WPA3 thay vì WPA2** → WPA3 có bảo vệ chống lại các cuộc tấn công Deauth & Brute Force.  
-✅ **Kích hoạt 802.11w (Management Frame Protection - MFP)** → Ngăn chặn Deauth Attack.  
-✅ **Không kết nối vào Wi-Fi công cộng** nếu không có VPN.  
-✅ **Luôn kiểm tra mạng trước khi nhập thông tin đăng nhập** (tránh Evil Twin Attack).  
-✅ **Chỉ truy cập các trang web HTTPS** để tránh bị MiTM Attack.  
-✅ **Dùng VPN để mã hóa dữ liệu**, ngay cả khi đang ở mạng tin cậy.  
-✅ **Đặt mật khẩu Wi-Fi mạnh** (dài, phức tạp, không dễ đoán).  
+**Dễ bị tấn công Deauthentication** → Kẻ tấn công có thể buộc thiết bị rời khỏi mạng một cách dễ dàng bằng Deauth Attack.  
+**Dễ bị giả mạo AP (Evil Twin Attack)** → Một Fake AP có thể lừa người dùng kết nối và đánh cắp dữ liệu.  
+**Dữ liệu có thể bị chặn (Sniffing & MiTM Attack)** → Hacker có thể đọc, chỉnh sửa dữ liệu nếu người dùng truy cập HTTP thay vì HTTPS.  
+**Mật khẩu có thể bị bẻ khóa** → Nếu Wi-Fi dùng **WPA2-PSK**, hacker có thể thu thập WPA Handshake và thực hiện **Brute Force Attack** để lấy mật khẩu.  
 
 ---
 
-### **🔎 Kết luận**  
-> ❗ **Wi-Fi không an toàn tuyệt đối**. Dù sử dụng mạng gia đình hay Wi-Fi công cộng, luôn có nguy cơ bị tấn công.  
-> ✅ **Biện pháp bảo vệ quan trọng nhất là sử dụng VPN, HTTPS, WPA3 và tránh Wi-Fi công cộng không mã hóa.**  
+### **Cách phòng tránh tấn công Wi-Fi**  
 
-# 5️⃣ Demo thực tế: Tấn công Deauthentication (Người 5)
+**Sử dụng WPA3 thay vì WPA2** → WPA3 có bảo vệ chống lại các cuộc tấn công Deauth & Brute Force.  
+**Kích hoạt 802.11w (Management Frame Protection - MFP)** → Ngăn chặn Deauth Attack.  
+**Không kết nối vào Wi-Fi công cộng** nếu không có VPN.  
+**Luôn kiểm tra mạng trước khi nhập thông tin đăng nhập** (tránh Evil Twin Attack).  
+**Chỉ truy cập các trang web HTTPS** để tránh bị MiTM Attack.  
+**Dùng VPN để mã hóa dữ liệu**, ngay cả khi đang ở mạng tin cậy.  
+**Đặt mật khẩu Wi-Fi mạnh** (dài, phức tạp, không dễ đoán).  
+
+---
+
+### **Kết luận**  
+> **Wi-Fi không an toàn tuyệt đối**. Dù sử dụng mạng gia đình hay Wi-Fi công cộng, luôn có nguy cơ bị tấn công.  
+> **Biện pháp bảo vệ quan trọng nhất là sử dụng VPN, HTTPS, WPA3 và tránh Wi-Fi công cộng không mã hóa.**  
+
+# Demo thực tế: Tấn công Deauthentication (Người 5)
 Chuẩn bị môi trường (WiFi Adapter, Kali Linux, airodump-ng, aireplay-ng).
 Cách tìm AP và client bằng airodump-ng.
 Gửi gói deauth bằng aireplay-ng.
